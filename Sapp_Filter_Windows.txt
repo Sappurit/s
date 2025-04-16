@@ -1,9 +1,7 @@
-! Title: Sappurit - Personal Filters
-! Homepage: https://github.com/Sappurit/uBlock-Filters
-! Download: https://github.com/Sappurit/uBlock-Filters/raw/master/Sappurit_Personal_Filters.txt
-! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+! Title: Sapp Filter Windows
+! Download: https://raw.githubusercontent.com/Sappurit/m/main/Sapp_Filter_Windows.txt
 ! Expires: 2 days
-! Version: 61
+! Version: 62
 
 !-------------------------------------------------------
 !--- Youtube -------------------------------------------

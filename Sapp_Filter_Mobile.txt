@@ -1,9 +1,7 @@
-! Title: Sappurit - Mobile Filters
-! Homepage: https://github.com/Sappurit/uBlock-Filters
-! Download: https://github.com/Sappurit/uBlock-Filters/raw/master/Sappurit_Mobile_Filters.txt
-! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+! Title: Sapp Filter Mobile
+! Download: https://raw.githubusercontent.com/Sappurit/m/main/Sapp_Filter_Mobile.txt
 ! Expires: 2 days
-! Version: 9
+! Version: 10
 
 !-------------------------------------------------------
 !--- Line ----------------------------------------------

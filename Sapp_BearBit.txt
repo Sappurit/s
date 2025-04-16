@@ -1,9 +1,7 @@
-! Title: Sappurit - Clean Up BearBit
-! Homepage: https://github.com/Sappurit/uBlock-Filters
-! Download: https://github.com/Sappurit/uBlock-Filters/raw/master/Sappurit_Clean_Up_BearBit.txt
-! License: https://github.com/uBlockOrigin/uAssets/blob/master/LICENSE
+! Title: Sapp BearBit
+! Download: https://raw.githubusercontent.com/Sappurit/m/main/Sapp_BearBit.txt
 ! Expires: 2 days
-! Version: 26
+! Version: 28
 
 !-------------------------------------------------------
 !--- BearBit -------------------------------------------
