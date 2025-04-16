@@ -71,13 +71,16 @@ window.SappDB = SappDB;
 
 /*
 <script>
+const db = new SappDB("TestDB", "TestStore");
+
 (async () => {
-	const db = new SappDB("TestDB", "TestStore");
+	await db.set('name', 'John Doe');
 
-	await db.set("username", "john_doe");
-	const name = await db.get("username");
+	checkbox.name    = (await db.get('name')) ?? 'default';
+        checkbox.checked = (await db.get('name.checked')) ?? false;
 
-	// await db.delete("username");
+	// await db.delete('name');
+
 	// await db.clearAll();
 })();
 </script>
