@@ -1,5 +1,5 @@
-! Title: Sapp BearBit
-! Download: https://raw.githubusercontent.com/Sappurit/m/main/Sapp_BearBit.txt
+! Title: Sapp Filter BearBit
+! Download: https://raw.githubusercontent.com/Sappurit/m/main/Sapp_Filter_BearBit.txt
 ! Expires: 2 days
 ! Version: 28
 

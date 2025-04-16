@@ -66,7 +66,6 @@ x.com,twitter.com##div[data-testid="sidebarColumn"] div:has(> nav[role="navigati
 ||cleverwebserver.com
 renderz.app##div[class*="venatus-ad-wrapper"]
 
-
 !-------------------------------------------------------
 !--- Block Domains -------------------------------------
 !-------------------------------------------------------
