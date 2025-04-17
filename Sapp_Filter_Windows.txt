@@ -1,5 +1,5 @@
 ! Title: Sapp Filter Windows
-! Download: https://raw.githubusercontent.com/Sappurit/m/main/Sapp_Filter_Windows.txt
+! Download: https://sappurit.github.io/s/Sapp_Filter_Windows.txt
 ! Expires: 2 days
 ! Version: 62
 

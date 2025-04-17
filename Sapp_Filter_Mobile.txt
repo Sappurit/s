@@ -1,5 +1,5 @@
 ! Title: Sapp Filter Mobile
-! Download: https://raw.githubusercontent.com/Sappurit/m/main/Sapp_Filter_Mobile.txt
+! Download: https://sappurit.github.io/s/Sapp_Filter_Mobile.txt
 ! Expires: 2 days
 ! Version: 10
 
