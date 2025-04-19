@@ -1,7 +1,7 @@
 ! Title: Sapp Filter Mobile
 ! Download: https://sappurit.github.io/s/Sapp_Filter_Mobile.txt
-! Expires: 2 days
-! Version: 10
+! Expires: 1 days
+! Version: 11
 
 !-------------------------------------------------------
 !--- Line ----------------------------------------------
@@ -54,11 +54,9 @@ m.facebook.com###screen-root > div > div[data-comp-id="22222"][data-mcomponent="
 time.is##div[id="recover"]
 time.is##div[id="toppromotion"]
 
-
 renderz.app##div[class*="venatus-ad-wrapper"]
 
 ดูบอลดูหนัง.com##div[class="jw-logo jw-logo-top-right jw-reset"]
-
 
 !-------------------------------------------------------
 !--- End -----------------------------------------------

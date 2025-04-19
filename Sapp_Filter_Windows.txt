@@ -1,38 +1,35 @@
 ! Title: Sapp Filter Windows
 ! Download: https://sappurit.github.io/s/Sapp_Filter_Windows.txt
-! Expires: 2 days
-! Version: 62
+! Expires: 1 days
+! Version: 63
 
 !-------------------------------------------------------
 !--- Youtube -------------------------------------------
 !-------------------------------------------------------
 
-! Suggested overlay at end of the clip.
-! youtube.com##.ytp-ce-element
+!youtube.com##.ytp-ce-element
+!youtube.com##ytd-rich-item-renderer[class="style-scope ytd-rich-grid-renderer"]:has(> div[id="content"][class="style-scope ytd-rich-item-renderer"] > ytd-ad-slot-renderer)
 
 !-------------------------------------------------------
 !--- Facebook ------------------------------------------
 !-------------------------------------------------------
 
 ! Left Column - Footer
-  facebook.com##div:has(> footer[aria-label="Facebook"][role="contentinfo"])
+!facebook.com##div:has(> footer[aria-label="Facebook"][role="contentinfo"])
 
-! Center Column - Feed Box
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/People You May Know/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/Reels and short videos/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/Friend Requests/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/Suggested for you/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/This is how your ad will look/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/Try an ad designed for your business/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/(ธนาธร|ปิยบุตร|จตุพร|ณัฐวุฒิ|จ่านิว|รังสิมันต์|เยาวชนปลดแอก|มายด์|จุรินทร์)/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/(พปชร|รทสช|พรรคก้าวไกล|รวมไทยสร้างชาติ|พลังประชารัฐ|เพื่อไทย|ประชาธิปัตย์|ปชป)/)
-! facebook.com##h3:has-text(News Feed posts) ~ div > div:has-text(/(เสี่ยโป้|เสกโลโซ|เสก โลโซ|กานต์|BitKub)/)
+! Center Column - News Feed posts
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(/^Follow$/))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(/^Join$/))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(Friend Requests))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(here are groups you might like))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(People you may know))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(Reels and short videos))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(Suggested for you))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(This is how your ad will look))
+!facebook.com##h3:has-text(News Feed posts) ~ div > *:has(span:has-text(Try an ad designed for your business))
 
-! Right Column - Birthdays
-  facebook.com##div[role="complementary"] span:nth-of-type(1) ~ div:nth-of-type(2):has-text(Birthdays)
-
-! Right Column - Page About
-! facebook.com##div[style="height: 0px;"] + div > div:nth-of-type(1):has(h2 > span:has-text(About))
+! Right Column - Sponsored & Birthdays
+!facebook.com##div[role="complementary"] > div > div > div > div > div:has-text(Birthdays)
 
 !-------------------------------------------------------
 !--- Twitter -------------------------------------------
@@ -62,9 +59,13 @@ x.com,twitter.com##div[data-testid="sidebarColumn"] div:has(> nav[role="navigati
 !--- Misc ----------------------------------------------
 !-------------------------------------------------------
 
-! RenderZ
-||cleverwebserver.com
-renderz.app##div[class*="venatus-ad-wrapper"]
+yts.mx###dontfoid
+techtobo.com###samNotice
+javhdporn.net###flash.video-container
+pptvhd36.com##div[id="navbar-sticky"]
+
+! sukebei.nyaa.si
+||magsrv.com
 
 !-------------------------------------------------------
 !--- Block Domains -------------------------------------
@@ -82,4 +83,23 @@ renderz.app##div[class*="venatus-ad-wrapper"]
 !-------------------------------------------------------
 !--- End -----------------------------------------------
 !-------------------------------------------------------
+
+! example.com###advert                       matches the element with the unique id "advert"
+! example.com##.advert                       matches elements with the class "advert"
+! example.com##div[title^="adv"]             matches all <div> elements with title attribute starting with "adv"
+! example.com##div[title*="ver"]             matches all <div> elements with title attribute containing the string "ver"
+! example.com##div[title$="ert"]             matches all <div> elements with title attribute ending with "ert"
+! example.com##div[title~="advert"]          matches all <div> elements with title attribute "advert" in a list of whitespace-separated values
+! example.com##div[width="80%"][size="7"]    matches multiple conditions
+
+! Decendant Selector (whitespace) = Any child, any level
+! Child Combinator (>) = Direct child, first level only
+! Adjacent Sibling Combinator (+) = Next younger sibling only, same level, same parent
+! Following Sibling Combinator (~) = Any younger slibling, same level, same parent
+
+! :watch-attr(name)
+! :remove-attr(name)
+! :remove-class(name)
+
+! ||doubleclick.net
 
