@@ -11,6 +11,7 @@
 bearbit.*##.outer > p:has-text(Tip:)
 bearbit.*##a[title="Bookmark File"]
 bearbit.*##a[title="Promote this Torrent"]
+bearbit.*##a:has-text(เว็บฝากรูป ImgBB.ws ฝากรูปไม่มีวันหมดอายุ)
 
 ! Remove usericons and slogans
 !||bearbit.co/pic/usericon/*$image
