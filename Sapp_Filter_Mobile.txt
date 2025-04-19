@@ -1,7 +1,7 @@
 ! Title: Sapp Filter Mobile
 ! Download: https://sappurit.github.io/s/Sapp_Filter_Mobile.txt
 ! Expires: 1 days
-! Version: 11
+! Version: 12
 
 !-------------------------------------------------------
 !--- Line ----------------------------------------------
@@ -54,7 +54,21 @@ m.facebook.com###screen-root > div > div[data-comp-id="22222"][data-mcomponent="
 time.is##div[id="recover"]
 time.is##div[id="toppromotion"]
 
-renderz.app##div[class*="venatus-ad-wrapper"]
+warpfootball.com##header
+warpfootball.com##footer
+warpfootball.com##main > div > div:nth-of-type(1)
+warpfootball.com##main > div > div:nth-of-type(2)
+warpfootball.com##main > div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2)
+warpfootball.com##main > div > div:nth-of-type(3) > div:nth-of-type(2) > div:last-of-type
+
+warpballsod.tv###myElement_vast_static
+warpballsod.tv##img[alt="ufabet747"]
+warpballsod.tv##img[alt="ufaclub24"]
+warpballsod.tv##img[alt="sbobet"]
+warpballsod.tv##img[alt="ufa747"]
+warpballsod.tv##img[class="img-fluid logo"]
+warpballsod.tv##footer
+warpballsod.tv##div:has(> h1:has-text(warpballsod ดูบอลสด ลิ้งค์ดูบอล วาปบอล ดูบอลออนไลน์ ดูบอลฟรี ทุกลีกทั่วโลก))
 
 ดูบอลดูหนัง.com##div[class="jw-logo jw-logo-top-right jw-reset"]
 
