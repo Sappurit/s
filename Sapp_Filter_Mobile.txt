@@ -1,19 +1,18 @@
 ! Title: Sapp Filter Mobile
 ! Download: https://sappurit.github.io/s/Sapp_Filter_Mobile.txt
 ! Expires: 1 days
-! Version: 12
+! Version: 13
 
 !-------------------------------------------------------
 !--- Line ----------------------------------------------
 !-------------------------------------------------------
 
-linevoom.line.me##body:watch-attr(class):remove-class(hide_scroll)
-linevoom.line.me##div[class^="homeLayout_wrap"]:remove-attr(class)
-linevoom.line.me##div[class^="homeProfileLayout_home_profile"]
-linevoom.line.me##div[class^="profileHeader_profile_header"]
-linevoom.line.me##div[class^="webToAppBanner_banner"]
-linevoom.line.me###header
 linevoom.line.me###modalPortal
+linevoom.line.me##header
+linevoom.line.me##footer
+linevoom.line.me##body:watch-attr(class):remove-class(hide_scroll)
+linevoom.line.me##div[class="vw_home_profile"]
+linevoom.line.me##div[class="vw_profile_header"]
 
 !-------------------------------------------------------
 !--- Facebook ------------------------------------------
