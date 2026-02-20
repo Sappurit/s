@@ -1,0 +1,50 @@
+! Title: Sapp Filter BearBit
+! Download: https://sappurit.github.io/s/Sapp_Filter_BearBit.txt
+! Expires: 1 days
+! Version: 29
+
+!-------------------------------------------------------
+!--- BearBit -------------------------------------------
+!-------------------------------------------------------
+
+! Remove Tips
+bearbit.*##.outer > p:has-text(Tip:)
+bearbit.*##a[title="Bookmark File"]
+bearbit.*##a[title="Promote this Torrent"]
+bearbit.*##a:has-text(เว็บฝากรูป ImgBB.ws ฝากรูปไม่มีวันหมดอายุ)
+
+! Remove usericons and slogans
+!||bearbit.co/pic/usericon/*$image
+bearbit.*##img[src*="pic/usericon/"][title]
+bearbit.*##td[width="260"][align="left"] > font[class="small"][color="gray"]
+
+! Remove useless icons
+||bearbit.*/pic/pn_inbox.gif
+||bearbit.*/pic/stickyt.gif
+||bearbit.*/pic/s-hot.gif
+||bearbit.*/pic/hot1.gif
+||bearbit.*/pic/new1.gif
+||bearbit.*/pic/imdb_siambit.png
+||bearbit.*/pic/on.gif
+||bearbit.*/pic/off.gif
+||bearbit.*/pic/fb_id.png
+||bearbit.*/pic/star.gif
+||bearbit.*/pic/crown.gif
+||bearbit.*/pic/crown3.gif
+||bearbit.*/pic/Crown20000new.gif
+||bearbit.*/pic/downloadpic.gif
+||bearbit.*/pic/online.gif
+||bearbit.*/pic/offline.gif
+||bearbit.*/pic/Pause.png
+||bearbit.*/pic/male.gif
+||bearbit.*/pic/female.gif
+||bearbit.*/pic/gay.gif
+||bearbit.*/pic/smilies/yehh.gif
+||bearbit.*/pic/smilies/thumbsup.gif
+||bearbit.*/pic/smilies/clap2.gif
+||bearbit.*/pic/smilies/zeza-SirensJY2U.gif
+
+!-------------------------------------------------------
+!--- End -----------------------------------------------
+!-------------------------------------------------------
+

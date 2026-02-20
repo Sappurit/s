@@ -1,0 +1,79 @@
+! Title: Sapp Filter Mobile
+! Download: https://sappurit.github.io/s/Sapp_Filter_Mobile.txt
+! Expires: 1 days
+! Version: 17
+
+!-------------------------------------------------------
+!--- Line ----------------------------------------------
+!-------------------------------------------------------
+
+linevoom.line.me###modalPortal
+linevoom.line.me##header
+linevoom.line.me##footer
+linevoom.line.me##body:watch-attr(class):remove-class(hide_scroll)
+linevoom.line.me##div[class="vw_layout_wrap page_user_home"]:style(padding: 0 !important)
+linevoom.line.me##main[class="vw_container"]:style(padding: 0 !important)
+linevoom.line.me##div[class="vw_home_profile"]
+linevoom.line.me##div[class="vw_profile_header"]
+
+!-------------------------------------------------------
+!--- Facebook ------------------------------------------
+!-------------------------------------------------------
+
+! <body id="app-body" class="html-renderer Chrome Android prevent-scrolling">
+
+! Top Header Login & Video
+! <div data-actual-height="95"  data-comp-id="30000" data-type="container" data-mcomponent="MContainer" class="m fixed-container top"
+
+! Remove padding-top:95px;
+! <div data-actual-height="-96" data-comp-id="30001" data-type="vscroller" data-mcomponent="MContainer" class="m" style="padding-top:95px;"
+
+!	Last div : Watch more videos you may like
+!	<div data-actual-height="467" data-type="container" data-mcomponent="MContainer" class="m bg-s17"
+!	Watch more videos you may like
+!	Log in to explore more videos and keep up with topics that you're interested in
+!	Log in
+
+! Popup Login to get full facebook experience
+! <div data-actual-height="536" data-comp-id="22222" data-type="container" data-mcomponent="MContainer" class="m fixed-container bottom" 
+
+! unknown
+! <div data-actual-height="0" data-type="container" data-mcomponent="MContainer" class="m fixed-container"
+! <div data-actual-height="0" data-type="container" data-mcomponent="MContainer" class="m fixed-container above-bottom"
+! <div data-actual-height="0" data-type="container" data-mcomponent="MContainer" class="m fixed-container"
+
+!m.facebook.com##body:watch-attr(class):remove-class(prevent-scrolling)
+!m.facebook.com###screen-root > div > div[data-comp-id="30000"][data-mcomponent="MContainer"][data-type="container"]
+!m.facebook.com###screen-root > div > div[data-comp-id="30001"][data-mcomponent="MContainer"][data-type="vscroller"]:remove-attr(style)
+!m.facebook.com###screen-root > div > div[data-comp-id="30001"][data-mcomponent="MContainer"][data-type="vscroller"] > div:has-text(Log in to explore more)
+!m.facebook.com###screen-root > div > div[data-comp-id="22222"][data-mcomponent="MContainer"][data-type="container"]
+
+!-------------------------------------------------------
+!--- Misc ----------------------------------------------
+!-------------------------------------------------------
+
+time.is##div[id="recover"]
+time.is##div[id="toppromotion"]
+
+warpfootball.com##header
+warpfootball.com##footer
+warpfootball.com##main > div > div:nth-of-type(1)
+warpfootball.com##main > div > div:nth-of-type(2)
+warpfootball.com##main > div > div:nth-of-type(3) > div:nth-of-type(2) > div:nth-of-type(2)
+warpfootball.com##main > div > div:nth-of-type(3) > div:nth-of-type(2) > div:last-of-type
+
+warpballsod.tv###myElement_vast_static
+warpballsod.tv##img[alt="ufabet747"]
+warpballsod.tv##img[alt="ufaclub24"]
+warpballsod.tv##img[alt="sbobet"]
+warpballsod.tv##img[alt="ufa747"]
+warpballsod.tv##img[class="img-fluid logo"]
+warpballsod.tv##footer
+warpballsod.tv##div:has(> h1:has-text(warpballsod ดูบอลสด ลิ้งค์ดูบอล วาปบอล ดูบอลออนไลน์ ดูบอลฟรี ทุกลีกทั่วโลก))
+
+ดูบอลดูหนัง.com##div[class="jw-logo jw-logo-top-right jw-reset"]
+
+!-------------------------------------------------------
+!--- End -----------------------------------------------
+!-------------------------------------------------------
+
