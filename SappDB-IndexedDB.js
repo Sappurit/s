@@ -1,26 +1,6 @@
-
-// Version 1
-
 //-------------------------------------------------------------------
-
-/*
-<script src="https://sappurit.github.io/s/SappDB.js"></script>
-<script>
-const db = new SappDB('SappDB', 'SomeWeb');
-
-(async () => {
-	await db.set('name', 'John Doe');
-
-	checkbox.name    = (await db.get('name')) ?? 'default';
-        checkbox.checked = (await db.get('name.checked')) ?? false;
-
-	// await db.delete('name');
-
-	// await db.clearAll();
-})();
-</script>
-*/
-
+// SappDB - Local IndexedDB
+// Version 1
 //-------------------------------------------------------------------
 
 class SappDB {
@@ -92,6 +72,24 @@ class SappDB {
 
 // Attach it to window so it's globally accessible
 window.SappDB = SappDB;
+
+//-------------------------------------------------------------------
+
+/*
+<script src="https://sappurit.github.io/s/SappDB-IndexedDB.js"></script>
+<script>
+const db = new SappDB('SappDB', 'SomeName');
+
+(async () => {
+	checkbox.name    = (await db.get('name')) ?? 'default';
+        checkbox.checked = (await db.get('name.checked')) ?? false;
+
+	await db.set('name', 'John Doe');
+	await db.delete('name');
+	await db.clearAll();
+})();
+</script>
+*/
 
 //-------------------------------------------------------------------
 
