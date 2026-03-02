@@ -75,23 +75,21 @@ class SappDB {
 				fontSize: '14px',
 				fontWeight: '600',
 				zIndex: '20000',
-				boxShadow: '0 -8px 10px rgba(0,0,0,0.4)',
-				transition: 'opacity 0.4s ease-out, top 0.4s ease-out',
+				boxShadow: '0 0 10px rgba(0,0,0,0.5)',
 				pointerEvents: 'none',
 				textAlign: 'center',
 				boxSizing: 'border-box',
-				opacity: '0'
 			});
 			document.body.appendChild(msgDiv);
 		}
 
 		msgDiv.innerText = text;
 		msgDiv.style.backgroundColor = color;
-		msgDiv.style.opacity = '1';
+		msgDiv.style.transition = 'top 0.3s ease-out';
 		msgDiv.style.top = '30px';
 
 		setTimeout(() => {
-			msgDiv.style.opacity = '0';
+			msgDiv.style.transition = 'top 0.5s ease-in';
 			msgDiv.style.top = '-1000px';
 		}, duration);
 	}
