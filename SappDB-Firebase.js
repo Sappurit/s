@@ -52,9 +52,10 @@ class SappDB {
 	}
 
 	msg(text, color = '#FFF8DC', duration = 3000) {
-		let msgDiv = document.getElementById('SappDB-Msg-Box');
+		let topDoc = window.top.document;
+		let msgDiv = topDoc.getElementById('SappDB-Msg-Box');
 		if (!msgDiv) {
-			msgDiv = document.createElement('div');
+			msgDiv = topDoc.createElement('div');
 			msgDiv.id = 'SappDB-Msg-Box';
 			Object.assign(msgDiv.style, {
 				position: 'fixed',
@@ -82,7 +83,7 @@ class SappDB {
 				boxSizing: 'border-box',
 				opacity: '0'
 			});
-			document.body.appendChild(msgDiv);
+			topDoc.body.appendChild(msgDiv);
 		}
 
 		msgDiv.innerText = text;
