@@ -61,22 +61,25 @@ class SappDB {
 				bottom: '-500px',
 				left: '50%',
 				transform: 'translateX(-50%)',
-				minWidth: '250px',
+				minWidth: '200px',
+				maxWidth: '60%',
 				width: 'auto',
-				height: '60px',
+				minHeight: '50px',
+				height: 'auto',
 				padding: '10px',
 				color: 'black',
-				borderRadius: '12px',
+				borderRadius: '10px',
 				display: 'flex',
 				alignItems: 'center',
 				justifyContent: 'center',
 				fontSize: '14px',
 				fontWeight: '600',
 				zIndex: '20000',
-				boxShadow: '0 -8px 20px rgba(0,0,0,0.4)',
-				transition: 'opacity 0.4s ease, bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				boxShadow: '0 -8px 10px rgba(0,0,0,0.4)',
+				transition: 'opacity 0.4s ease-out, bottom 0.4s ease-out',
 				pointerEvents: 'none',
 				textAlign: 'center',
+				boxSizing: 'border-box',
 				opacity: '0'
 			});
 			document.body.appendChild(msgDiv);
@@ -85,7 +88,7 @@ class SappDB {
 		msgDiv.innerText = text;
 		msgDiv.style.backgroundColor = color;
 		msgDiv.style.opacity = '1';
-		msgDiv.style.bottom = '30px'; // Slight up effect
+		msgDiv.style.bottom = '30px';
 
 		setTimeout(() => {
 			msgDiv.style.opacity = '0';
