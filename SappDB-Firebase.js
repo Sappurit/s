@@ -58,7 +58,7 @@ class SappDB {
 			msgDiv.id = 'SappDB-Msg-Box';
 			Object.assign(msgDiv.style, {
 				position: 'fixed',
-				top: '-100px',
+				bottom: '-500px',
 				left: '50%',
 				transform: 'translateX(-50%)',
 				minWidth: '250px',
@@ -85,11 +85,11 @@ class SappDB {
 		msgDiv.innerText = text;
 		msgDiv.style.backgroundColor = color;
 		msgDiv.style.opacity = '1';
-		msgDiv.style.bottom = '30px'; // Slight bounce up effect
+		msgDiv.style.bottom = '30px'; // Slight up effect
 
 		setTimeout(() => {
 			msgDiv.style.opacity = '0';
-			msgDiv.style.top = '-100px';
+			msgDiv.style.bottom = '-500px';
 		}, duration);
 	}
 }
