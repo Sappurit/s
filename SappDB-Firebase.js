@@ -50,6 +50,48 @@ class SappDB {
 			console.log(`[SappDB.delKey] ${key}`);
 		} catch (e) { console.error(`[SappDB.delKey] ${key}`, e); }
 	}
+
+	msg(text, color = '#FFF8DC', duration = 3000) {
+		let msgDiv = document.getElementById('SappDB-Msg-Box');
+		if (!msgDiv) {
+			msgDiv = document.createElement('div');
+			msgDiv.id = 'SappDB-Msg-Box';
+			Object.assign(msgDiv.style, {
+				position: 'fixed',
+				top: '20px',
+				left: '50%',
+				transform: 'translateX(-50%)',
+				minWidth: '250px',
+				width: 'auto',
+				height: '100px',
+				padding: '0 30px',
+				color: 'white',
+				borderRadius: '12px',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+				fontSize: '20px',
+				fontWeight: '600',
+				zIndex: '10000',
+				boxShadow: '0 8px 20px rgba(0,0,0,0.4)',
+				transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+				pointerEvents: 'none',
+				textAlign: 'center',
+				opacity: '0'
+			});
+			document.body.appendChild(msgDiv);
+		}
+
+		msgDiv.innerText = text;
+		msgDiv.style.backgroundColor = color;
+		msgDiv.style.opacity = '1';
+		msgDiv.style.top = '40px'; // Slight bounce down effect
+
+		setTimeout(() => {
+			msgDiv.style.opacity = '0';
+			msgDiv.style.top = '20px';
+		}, duration);
+	}
 }
 
 //-------------------------------------------------------------------
@@ -71,7 +113,7 @@ let db = null;
 (async function() {
 	db = new SappDB({
 		dbHost: 'my-project.firebasedatabase.app',
-		dbPath: window.location.hostname
+		dbPath: 'some-name'
 	});
 
 	json = await db.getAll();
