@@ -122,12 +122,13 @@ let db = null;
 	json = await db.getAll();
 })();
 
-function xxx() {
+async function xxx() {
 	let myCheckBox_1 = json?.myCheckBox_1 ?? false;
 	let myCheckBox_2 = json['myCheckBox_2'] ?? false;
-	let myCheckBox_3 = db.getKey('myCheckBox_3') ?? false;
-	db.setKey('myCheckBox_4', true);
-	db.delKey('myCheckBox_5');
+	let myCheckBox_3 = await db.getKey('myCheckBox_3') ?? false;
+	await db.setKey('myCheckBox_4', true);
+	await db.delKey('myCheckBox_5');
+	db.msg('OK', 'red', 2000);
 }
 */
 
