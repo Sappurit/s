@@ -52,14 +52,13 @@ class SappDB {
 	}
 
 	msg(text, color = '#FFF8DC', duration = 3000) {
-		let topDoc = window.top.document;
-		let msgDiv = topDoc.getElementById('SappDB-Msg-Box');
+		let msgDiv = document.getElementById('SappDB-Msg-Box');
 		if (!msgDiv) {
-			msgDiv = topDoc.createElement('div');
+			msgDiv = document.createElement('div');
 			msgDiv.id = 'SappDB-Msg-Box';
 			Object.assign(msgDiv.style, {
 				position: 'fixed',
-				bottom: '-500px',
+				top: '-1000px',
 				left: '50%',
 				transform: 'translateX(-50%)',
 				minWidth: '200px',
@@ -77,23 +76,23 @@ class SappDB {
 				fontWeight: '600',
 				zIndex: '20000',
 				boxShadow: '0 -8px 10px rgba(0,0,0,0.4)',
-				transition: 'opacity 0.4s ease-out, bottom 0.4s ease-out',
+				transition: 'opacity 0.4s ease-out, top 0.4s ease-out',
 				pointerEvents: 'none',
 				textAlign: 'center',
 				boxSizing: 'border-box',
 				opacity: '0'
 			});
-			topDoc.body.appendChild(msgDiv);
+			document.body.appendChild(msgDiv);
 		}
 
 		msgDiv.innerText = text;
 		msgDiv.style.backgroundColor = color;
 		msgDiv.style.opacity = '1';
-		msgDiv.style.bottom = '30px';
+		msgDiv.style.top = '30px';
 
 		setTimeout(() => {
 			msgDiv.style.opacity = '0';
-			msgDiv.style.bottom = '-500px';
+			msgDiv.style.top = '-1000px';
 		}, duration);
 	}
 }
