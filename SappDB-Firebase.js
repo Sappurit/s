@@ -51,6 +51,16 @@ class SappDB {
 		} catch (e) { console.error(`[SappDB.delKey] ${key}`, e); }
 	}
 
+	async setKeys(json) {
+		try {
+			await fetch('https://' + this.dbHost + '/' + this.dbPath + '.json', {
+				method: 'PATCH',
+				body: JSON.stringify(json)
+			});
+			console.log(`[SappDB.setKeys] ${Object.keys(json).length} keys`);
+		} catch (e) { console.error(`[SappDB.setKeys] ${Object.keys(json).length} keys`, e); }
+	}
+
 	msg(text, color = '#FFF8DC', duration = 3000) {
 		let msgDiv = document.getElementById('SappDB-Msg-Box');
 		if (!msgDiv) {
