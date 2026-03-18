@@ -1,72 +1,78 @@
 //-------------------------------------------------------------------
 // SappDB - Firebase Realtime Database
-// Version 2
 //-------------------------------------------------------------------
 
 class SappDB {
 
-	constructor(init) {
-            this.dbHost = init.dbHost?.replace(/[^a-zA-Z0-9\-\.]/g, '-') || 'default-host';
-            this.dbPath = init.dbPath?.replace(/[^a-zA-Z0-9\-\_]/g, '-') || 'default-path';
+	static #version = '1.2.0';
+
+	constructor(setting) {
+            this.host = setting.host?.replace(/[^a-zA-Z0-9\-\.]/g, '-') || 'default-host';
+            this.path = setting.path?.replace(/[^a-zA-Z0-9\-\_]/g, '-') || 'default-path';
 	}
 
 	async getAll() {
+		const info = `[SappDB] ${this.path} : getAll`;
 		try {
-			const resp = await fetch('https://' + this.dbHost + '/' + this.dbPath + '.json');
+			const resp = await fetch('https://' + this.host + '/' + this.path + '.json');
 			const data = await resp.json() || {};
-			console.log(`[SappDB] ${this.dbPath} : getAll`);
+			console.log(info);
 			return data;
-		} catch (e) { console.error(`[SappDB] ${this.dbPath} : getAll : ${e}`); return {}; }
+		} catch (e) { console.error(info + ' : ' + e); return {}; }
 	}
 
 	async getKey(key) {
+		const info = `[SappDB] ${this.path} : getKey : ${key}`;
 		try {
 			key = key.replace(/[^a-zA-Z0-9\-\_]/g, '-');
-			const resp = await fetch('https://' + this.dbHost + '/' + this.dbPath + '/' + key + '.json');
+			const resp = await fetch('https://' + this.host + '/' + this.path + '/' + key + '.json');
 			const data = await resp.json() || {};
-			console.log(`[SappDB] ${this.dbPath} : getKey : ${key}`);
+			console.log(info);
 			return data;
-		} catch (e) { console.error(`[SappDB] ${this.dbPath} : getKey : ${key} : ${e}`); return {}; }
+		} catch (e) { console.error(info + ' : ' + e); return {}; }
 	}
 
 	async setKey(key, value) {
+		const info = `[SappDB] ${this.path} : setKey : ${key}`;
 		try {
 			key = key.replace(/[^a-zA-Z0-9\-\_]/g, '-');
-			await fetch('https://' + this.dbHost + '/' + this.dbPath + '.json', {
+			await fetch('https://' + this.host + '/' + this.path + '.json', {
 				method: 'PATCH',
 				body: JSON.stringify({ [key]: value })
 			});
-			console.log(`[SappDB] ${this.dbPath} : setKey : ${key}`);
-		} catch (e) { console.error(`[SappDB] ${this.dbPath} : setKey : ${key} : ${e}`); }
+			console.log(info);
+		} catch (e) { console.error(info + ' : ' + e); }
 	}
 
 	async delKey(key) {
+		const info = `[SappDB] ${this.path} : delKey : ${key}`;
 		try {
 			key = key.replace(/[^a-zA-Z0-9\-\_]/g, '-');
-			await fetch('https://' + this.dbHost + '/' + this.dbPath + '.json', {
+			await fetch('https://' + this.host + '/' + this.path + '.json', {
 				method: 'PATCH',
 				body: JSON.stringify({ [key]: null })
 			});
-			console.log(`[SappDB] ${this.dbPath} : delKey : ${key}`);
-		} catch (e) { console.error(`[SappDB] ${this.dbPath} : delKey : ${key} : ${e}`); }
+			console.log(info);
+		} catch (e) { console.error(info + ' : ' + e); }
 	}
 
 	async setKeys(json) {
+		const info = `[SappDB] ${this.path} : setKeys : ${Object.keys(json).length} keys`;
 		try {
-			await fetch('https://' + this.dbHost + '/' + this.dbPath + '.json', {
+			await fetch('https://' + this.host + '/' + this.path + '.json', {
 				method: 'PATCH',
 				body: JSON.stringify(json)
 			});
-			console.log(`[SappDB] ${this.dbPath} : setKeys : ${Object.keys(json).length} keys`);
-		} catch (e) { console.error(`[SappDB] ${this.dbPath} : setKeys : ${Object.keys(json).length} keys : ${e}`); }
+			console.log(info);
+		} catch (e) { console.error(info + ' : ' + e); }
 	}
 
-	msg(text, color = '#FFF8DC', duration = 3000) {
-		let msgDiv = document.getElementById('SappDB-Msg-Box');
-		if (!msgDiv) {
-			msgDiv = document.createElement('div');
-			msgDiv.id = 'SappDB-Msg-Box';
-			Object.assign(msgDiv.style, {
+	static popup(text = 'Untitled', color = '#FFF8DC', duration = 3000) {
+		let popupDiv = document.getElementById('SappDB-Popup');
+		if (!popupDiv) {
+			popupDiv = document.createElement('div');
+			popupDiv.id = 'SappDB-Popup';
+			Object.assign(popupDiv.style, {
 				position: 'fixed',
 				top: '-1000px',
 				left: '50%',
@@ -89,18 +95,24 @@ class SappDB {
 				pointerEvents: 'none',
 				boxSizing: 'border-box',
 			});
-			document.body.appendChild(msgDiv);
+			document.body.appendChild(popupDiv);
 		}
 
-		msgDiv.innerText = text;
-		msgDiv.style.backgroundColor = color;
-		msgDiv.style.transition = 'top 0.3s ease-out';
-		msgDiv.style.top = '30px';
+		popupDiv.innerText = text;
+		popupDiv.style.backgroundColor = color;
+		popupDiv.style.transition = 'top 0.3s ease-out';
+		popupDiv.style.top = '30px';
 
 		setTimeout(() => {
-			msgDiv.style.transition = 'top 0.5s ease-in';
-			msgDiv.style.top = '-1000px';
+			popupDiv.style.transition = 'top 0.5s ease-in';
+			popupDiv.style.top = '-1000px';
 		}, duration);
+	}
+
+	static get version() {
+		const info = `[SappDB] version : ${this.#version}`;
+		console.log(info);
+		return this.#version;
 	}
 }
 
@@ -122,20 +134,21 @@ let db = null;
 
 (async function() {
 	db = new SappDB({
-		dbHost: 'my-project.firebasedatabase.app',
-		dbPath: 'some-name'
+		host: 'my-project.firebase.database.app',
+		path: 'my-name'
 	});
 
 	json = await db.getAll();
 })();
 
-async function xxx() {
+async function status() {
 	let myCheckBox_1 = json?.myCheckBox_1 ?? false;
 	let myCheckBox_2 = json['myCheckBox_2'] ?? false;
 	let myCheckBox_3 = await db.getKey('myCheckBox_3') ?? false;
 	await db.setKey('myCheckBox_4', true);
 	await db.delKey('myCheckBox_5');
-	db.msg('OK', 'red', 2000);
+	SappDB.popup('OK', 'red', 2000);
+	console.log(SappDB.version); // '1.2.0'
 }
 */
 
