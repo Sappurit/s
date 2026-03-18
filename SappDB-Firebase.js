@@ -1,6 +1,6 @@
 //-------------------------------------------------------------------
 // SappDB - Firebase Realtime Database
-// Version 1
+// Version 2
 //-------------------------------------------------------------------
 
 class SappDB {
@@ -14,9 +14,9 @@ class SappDB {
 		try {
 			const resp = await fetch('https://' + this.dbHost + '/' + this.dbPath + '.json');
 			const data = await resp.json() || {};
-			console.log(`[SappDB.getAll] ${this.dbPath}`);
+			console.log(`[SappDB] ${this.dbPath} : getAll`);
 			return data;
-		} catch (e) { console.error(`[SappDB.getAll] ${this.dbPath}`, e); return {}; }
+		} catch (e) { console.error(`[SappDB] ${this.dbPath} : getAll : ${e}`); return {}; }
 	}
 
 	async getKey(key) {
@@ -24,9 +24,9 @@ class SappDB {
 			key = key.replace(/[^a-zA-Z0-9\-\_]/g, '-');
 			const resp = await fetch('https://' + this.dbHost + '/' + this.dbPath + '/' + key + '.json');
 			const data = await resp.json() || {};
-			console.log(`[SappDB.getKey] ${key}`);
+			console.log(`[SappDB] ${this.dbPath} : getKey : ${key}`);
 			return data;
-		} catch (e) { console.error(`[SappDB.getKey] ${key}`, e); return {}; }
+		} catch (e) { console.error(`[SappDB] ${this.dbPath} : getKey : ${key} : ${e}`); return {}; }
 	}
 
 	async setKey(key, value) {
@@ -36,8 +36,8 @@ class SappDB {
 				method: 'PATCH',
 				body: JSON.stringify({ [key]: value })
 			});
-			console.log(`[SappDB.setKey] ${key}: ${value}`);
-		} catch (e) { console.error(`[SappDB.setKey] ${key}: ${value}`, e); }
+			console.log(`[SappDB] ${this.dbPath} : setKey : ${key}`);
+		} catch (e) { console.error(`[SappDB] ${this.dbPath} : setKey : ${key} : ${e}`); }
 	}
 
 	async delKey(key) {
@@ -47,8 +47,8 @@ class SappDB {
 				method: 'PATCH',
 				body: JSON.stringify({ [key]: null })
 			});
-			console.log(`[SappDB.delKey] ${key}`);
-		} catch (e) { console.error(`[SappDB.delKey] ${key}`, e); }
+			console.log(`[SappDB] ${this.dbPath} : delKey : ${key}`);
+		} catch (e) { console.error(`[SappDB] ${this.dbPath} : delKey : ${key} : ${e}`); }
 	}
 
 	async setKeys(json) {
@@ -57,8 +57,8 @@ class SappDB {
 				method: 'PATCH',
 				body: JSON.stringify(json)
 			});
-			console.log(`[SappDB.setKeys] ${Object.keys(json).length} keys`);
-		} catch (e) { console.error(`[SappDB.setKeys] ${Object.keys(json).length} keys`, e); }
+			console.log(`[SappDB] ${this.dbPath} : setKeys : ${Object.keys(json).length} keys`);
+		} catch (e) { console.error(`[SappDB] ${this.dbPath} : setKeys : ${Object.keys(json).length} keys : ${e}`); }
 	}
 
 	msg(text, color = '#FFF8DC', duration = 3000) {
