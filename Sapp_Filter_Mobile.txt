@@ -1,7 +1,7 @@
 ! Title: Sapp Filter Mobile
 ! Download: https://sappurit.github.io/s/Sapp_Filter_Mobile.txt
 ! Expires: 1 days
-! Version: 17
+! Version: 18
 
 !-------------------------------------------------------
 !--- Line ----------------------------------------------
@@ -17,43 +17,8 @@ linevoom.line.me##div[class="vw_home_profile"]
 linevoom.line.me##div[class="vw_profile_header"]
 
 !-------------------------------------------------------
-!--- Facebook ------------------------------------------
-!-------------------------------------------------------
-
-! <body id="app-body" class="html-renderer Chrome Android prevent-scrolling">
-
-! Top Header Login & Video
-! <div data-actual-height="95"  data-comp-id="30000" data-type="container" data-mcomponent="MContainer" class="m fixed-container top"
-
-! Remove padding-top:95px;
-! <div data-actual-height="-96" data-comp-id="30001" data-type="vscroller" data-mcomponent="MContainer" class="m" style="padding-top:95px;"
-
-!	Last div : Watch more videos you may like
-!	<div data-actual-height="467" data-type="container" data-mcomponent="MContainer" class="m bg-s17"
-!	Watch more videos you may like
-!	Log in to explore more videos and keep up with topics that you're interested in
-!	Log in
-
-! Popup Login to get full facebook experience
-! <div data-actual-height="536" data-comp-id="22222" data-type="container" data-mcomponent="MContainer" class="m fixed-container bottom" 
-
-! unknown
-! <div data-actual-height="0" data-type="container" data-mcomponent="MContainer" class="m fixed-container"
-! <div data-actual-height="0" data-type="container" data-mcomponent="MContainer" class="m fixed-container above-bottom"
-! <div data-actual-height="0" data-type="container" data-mcomponent="MContainer" class="m fixed-container"
-
-!m.facebook.com##body:watch-attr(class):remove-class(prevent-scrolling)
-!m.facebook.com###screen-root > div > div[data-comp-id="30000"][data-mcomponent="MContainer"][data-type="container"]
-!m.facebook.com###screen-root > div > div[data-comp-id="30001"][data-mcomponent="MContainer"][data-type="vscroller"]:remove-attr(style)
-!m.facebook.com###screen-root > div > div[data-comp-id="30001"][data-mcomponent="MContainer"][data-type="vscroller"] > div:has-text(Log in to explore more)
-!m.facebook.com###screen-root > div > div[data-comp-id="22222"][data-mcomponent="MContainer"][data-type="container"]
-
-!-------------------------------------------------------
 !--- Misc ----------------------------------------------
 !-------------------------------------------------------
-
-time.is##div[id="recover"]
-time.is##div[id="toppromotion"]
 
 warpfootball.com##header
 warpfootball.com##footer
@@ -72,8 +37,28 @@ warpballsod.tv##footer
 warpballsod.tv##div:has(> h1:has-text(warpballsod ดูบอลสด ลิ้งค์ดูบอล วาปบอล ดูบอลออนไลน์ ดูบอลฟรี ทุกลีกทั่วโลก))
 
 ดูบอลดูหนัง.com##div[class="jw-logo jw-logo-top-right jw-reset"]
+mo-max.com###custom-ad-container
 
 !-------------------------------------------------------
 !--- End -----------------------------------------------
 !-------------------------------------------------------
+
+! example.com###advert                       matches the element with the unique id "advert"
+! example.com##.advert                       matches elements with the class "advert"
+! example.com##div[title^="adv"]             matches all <div> elements with title attribute starting with "adv"
+! example.com##div[title*="ver"]             matches all <div> elements with title attribute containing the string "ver"
+! example.com##div[title$="ert"]             matches all <div> elements with title attribute ending with "ert"
+! example.com##div[title~="advert"]          matches all <div> elements with title attribute "advert" in a list of whitespace-separated values
+! example.com##div[width="80%"][size="7"]    matches multiple conditions
+
+! Decendant Selector (whitespace) = Any child, any level
+! Child Combinator (>) = Direct child, first level only
+! Adjacent Sibling Combinator (+) = Next younger sibling only, same level, same parent
+! Following Sibling Combinator (~) = Any younger slibling, same level, same parent
+
+! :watch-attr(name)
+! :remove-attr(name)
+! :remove-class(name)
+
+! ||doubleclick.net
 
