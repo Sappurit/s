@@ -4,7 +4,7 @@
 
 class SappDB {
 
-	static #version = '1.2.0';
+	static #version = '1.3.0';
 
 	constructor(setting) {
             this.host = setting.host?.replace(/[^a-zA-Z0-9\-\.]/g, '-') || 'default-host';
