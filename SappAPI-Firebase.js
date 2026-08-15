@@ -161,7 +161,7 @@ async function status() {
 	await db.setKey('myCheckBox_4', true);
 	await db.delKey('myCheckBox_5');
 	db.popup('OK', 'red', 2000);
-	console.log(db.version); // '1.4.0'
+	console.log(db.version);
 }
 */
 
