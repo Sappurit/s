@@ -4,7 +4,7 @@
 
 class SappSS {
 
-	static #version = '1.0.0';
+	static #version = '1.0.0';  // Private value. To read only, use with get version()
 
 	constructor(setting) {
             this.apikey   = setting.apikey?.replace(/[^a-zA-Z0-9\-\.\_]/g,   '-') || 'default-apikey';
