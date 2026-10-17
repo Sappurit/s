@@ -4,7 +4,7 @@
 
 class SappFB {
 
-	#version = '1.4.0';  // Private value. To read only, use with get version()
+	#version = '1.5.0';  // Private value. To read only, use with get version()
 
 	constructor(setting) {
             this.host = setting.host?.replace(/[^a-zA-Z0-9\-\.]/g, '-') || 'default-host';
@@ -15,10 +15,11 @@ class SappFB {
 		const info = `[SappFB] ${this.path} : getAll`;
 		try {
 			const resp = await fetch('https://' + this.host + '/' + this.path + '.json');
+			if (!resp.ok) throw new Error(`HTTP ${resp.status} : ${resp.statusText}`);
 			const data = await resp.json() || {};
 			console.log(info);
 			return data;
-		} catch (e) { console.error(info + ' : ' + e); return {}; }
+		} catch (e) { e.info = info; console.error(info + ' : ' + e); throw e; }
 	}
 
 	async getKey(key) {
@@ -26,48 +27,52 @@ class SappFB {
 		try {
 			key = key.replace(/[^a-zA-Z0-9\-\_]/g, '-');
 			const resp = await fetch('https://' + this.host + '/' + this.path + '/' + key + '.json');
+			if (!resp.ok) throw new Error(`HTTP ${resp.status} : ${resp.statusText}`);
 			const data = await resp.json() || {};
 			console.log(info);
 			return data;
-		} catch (e) { console.error(info + ' : ' + e); return {}; }
+		} catch (e) { e.info = info; console.error(info + ' : ' + e); throw e; }
 	}
 
 	async setKey(key, value) {
 		const info = `[SappFB] ${this.path} : setKey : ${key}`;
 		try {
 			key = key.replace(/[^a-zA-Z0-9\-\_]/g, '-');
-			await fetch('https://' + this.host + '/' + this.path + '.json', {
+			const resp = await fetch('https://' + this.host + '/' + this.path + '.json', {
 				method: 'PATCH',
 				body: JSON.stringify({ [key]: value })
 			});
+			if (!resp.ok) throw new Error(`HTTP ${resp.status} : ${resp.statusText}`);
 			console.log(info);
-		} catch (e) { console.error(info + ' : ' + e); }
+		} catch (e) { e.info = info; console.error(info + ' : ' + e); throw e; }
 	}
 
 	async delKey(key) {
 		const info = `[SappFB] ${this.path} : delKey : ${key}`;
 		try {
 			key = key.replace(/[^a-zA-Z0-9\-\_]/g, '-');
-			await fetch('https://' + this.host + '/' + this.path + '.json', {
+			const resp = await fetch('https://' + this.host + '/' + this.path + '.json', {
 				method: 'PATCH',
 				body: JSON.stringify({ [key]: null })
 			});
+			if (!resp.ok) throw new Error(`HTTP ${resp.status} : ${resp.statusText}`);
 			console.log(info);
-		} catch (e) { console.error(info + ' : ' + e); }
+		} catch (e) { e.info = info; console.error(info + ' : ' + e); throw e; }
 	}
 
 	async setKeys(json) {
 		const info = `[SappFB] ${this.path} : setKeys : ${Object.keys(json).length} keys`;
 		try {
-			await fetch('https://' + this.host + '/' + this.path + '.json', {
+			const resp = await fetch('https://' + this.host + '/' + this.path + '.json', {
 				method: 'PATCH',
 				body: JSON.stringify(json)
 			});
+			if (!resp.ok) throw new Error(`HTTP ${resp.status} : ${resp.statusText}`);
 			console.log(info);
-		} catch (e) { console.error(info + ' : ' + e); }
+		} catch (e) { e.info = info; console.error(info + ' : ' + e); throw e; }
 	}
 
-	popup(text = 'Untitled', color = '#FFF8DC', duration = 3000) {
+	popup(text = 'Untitled', color = '#FFF8DC', duration = 2000) {
 		let popupDiv = document.getElementById('SappFB-Popup');
 		if (!popupDiv) {
 			popupDiv = document.createElement('div');
@@ -138,7 +143,7 @@ window.SappFB = SappFB;
 
 // ==UserScript==
 // @name         My Project
-// @require      https://sappurit.github.io/s/SappFB-Firebase.js
+// @require      https://sappurit.github.io/s/SappAPI-Firebase.js
 // ==/UserScript==
 
 /*
