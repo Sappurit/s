@@ -4,7 +4,7 @@
 
 class SappFB {
 
-	#version = '1.5.0';  // Private value. To read only, use with get version()
+	#version = '1.5.1';  // Private value. To read only, use with get version()
 
 	constructor(setting) {
             this.host = setting.host?.replace(/[^a-zA-Z0-9\-\.]/g, '-') || 'default-host';
@@ -103,12 +103,24 @@ class SappFB {
 			document.body.appendChild(popupDiv);
 		}
 
+		// Cancel previous timer
+		clearTimeout(popupDiv.timerID);
+
+		// Reset position immediately
+		popupDiv.style.transition = 'none';
+		popupDiv.style.top = '-1000px';
+
+		// Force browser reflow
+		void popupDiv.offsetHeight;
+
+		// Update content and Slide down
 		popupDiv.innerText = text;
 		popupDiv.style.backgroundColor = color;
 		popupDiv.style.transition = 'top 0.3s ease-out';
 		popupDiv.style.top = '30px';
 
-		setTimeout(() => {
+		// Auto hide and keep the Timer ID
+		popupDiv.timerID = setTimeout(() => {
 			popupDiv.style.transition = 'top 0.5s ease-in';
 			popupDiv.style.top = '-1000px';
 		}, duration);
